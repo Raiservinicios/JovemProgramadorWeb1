@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "_LayoutDeslogado";
+}
+
+@model Usuario
+
+@if (!string.IsNullOrEmpty(TempData["MsgErro"] as string))
+{
+    <div class="alert alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/StyloLogin.css">
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <title>Animated Login Page</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="square">
+        <i style="--clr:#24124b;"></i>
+        <i style="--clr: #6adbe9;"></i>
+        <i style="--clr:#0e0b2a;"></i>
+        <div class="login">
+            <h2>Login</h2>
+            <form asp-controller="Login" asp-action="BuscaLogin" method="post">
+                <div class="inputBx">
+                    <input type="text" name="nomeUsuario" placeholder="Usuário" required asp-for="NomeUsuario">
+                </div><br>
+                <div class="inputBx">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required asp-for="Senha">
+                </div>
+                <div style="color: #ffffff;">
+                    <input type="checkbox" id="mostrarSenha" onclick="mostrarOcultarSenha()"> Mostrar Senha
+                </div>
+                <div class="inputBx">
+                    <br>
+                    <input type="submit" value="Entrar">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function mostrarOcultarSenha() {
+            var senha = document.getElementById("senha");
+
+            if (senha.type =="password") {
+                senha.type = "text"; // Mostra a senha
+            } else {
+                senha.type = "password"; // Oculta a senha
+            }
+        }
+    </script>
+</body>
+</html>
