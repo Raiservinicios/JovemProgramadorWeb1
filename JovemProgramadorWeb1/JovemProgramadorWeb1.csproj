@@ -9,20 +9,14 @@
   <ItemGroup>
     <Compile Remove="Controllers\AdicionarController.cs" />
     <Compile Remove="DbContext.cs" />
-    <Compile Remove="Views\Aluno\AlunoViewModel.cs" />
-    <Compile Remove="Views\Aluno\EditarAlunoViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Aluno\EditarAluno.cshtml" />
+    <Content Remove="wwwroot\css\StyloLogin.css" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Views\Shared\_Layout.cshtml.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\StyloLogin.css" />
   </ItemGroup>
 
   <ItemGroup>

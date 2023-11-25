@@ -2,9 +2,9 @@
 
 namespace JovemProgramadorWeb1.Controllers
 {
-    public class ProfessorController : Controller
+    public class EventosController : Controller
     {
-        public IActionResult Index()
+        public IActionResult EventosIndex()
         {
             return View();
         }

@@ -2,9 +2,9 @@
 
 namespace JovemProgramadorWeb1.Controllers
 {
-    public class FormularioCadProfessorController : Controller
+    public class MeusDadosController : Controller
     {
-        public IActionResult FormularioCadastroProfessor()
+        public IActionResult MeusDadosIndex()
         {
             return View();
         }

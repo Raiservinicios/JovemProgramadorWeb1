@@ -14,7 +14,7 @@ builder.Services.AddHttpClient();
 var connectionstring = builder.Configuration.GetConnectionString("StringConexao");
 builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
 
-builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
+
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();

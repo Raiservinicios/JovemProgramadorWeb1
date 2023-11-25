@@ -10,11 +10,11 @@ namespace JovemProgramadorWeb1.Data.Mapeamento
         {
             builder.ToTable("Usuario");
 
-            builder.HasKey(t => t.Cod);
+            builder.HasKey(t => t.codigo);
 
-            builder.Property(t => t.NomeUsuario).HasColumnType("varchar(50)");
+            builder.Property(t => t.nomeUsuario).HasColumnType("varchar(50)");
 
-            builder.Property(t => t.Senha).HasColumnType("varchar(50)");
+            builder.Property(t => t.senha).HasColumnType("varchar(50)");
         }
     }
 }

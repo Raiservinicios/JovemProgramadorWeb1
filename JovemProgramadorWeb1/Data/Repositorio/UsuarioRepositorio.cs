@@ -16,7 +16,7 @@ namespace JovemProgramadorWeb1.Data.Repositorio
 
         public Usuario ValidarUsuario(Usuario usuario)
         {
-            return _bancoContexto.Usuario.FirstOrDefault(x => x.NomeUsuario == usuario.NomeUsuario && x.Senha == usuario.Senha);
+            return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.senha == usuario.senha);
         }
     }
 }

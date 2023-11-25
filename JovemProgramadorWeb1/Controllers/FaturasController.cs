@@ -2,9 +2,9 @@
 
 namespace JovemProgramadorWeb1.Controllers
 {
-    public class ConhecimentoController : Controller
+    public class FaturasController : Controller
     {
-        public IActionResult IndexConhe()
+        public IActionResult FaturasIndex()
         {
             return View();
         }
