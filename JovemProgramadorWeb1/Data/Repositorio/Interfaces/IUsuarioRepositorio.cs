@@ -7,5 +7,7 @@ namespace JovemProgramadorWeb1.Data.Repositorio.Interfaces
         public Usuario ValidarUsuario(Usuario usuario);
 
         public Socio BuscarDadosSocio (Usuario usuario);
+
+        Socio ObterSocioPorCodigoUsuario(int codigoUsuario);
     }
 }

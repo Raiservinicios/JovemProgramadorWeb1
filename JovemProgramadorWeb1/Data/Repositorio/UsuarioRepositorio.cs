@@ -2,6 +2,7 @@
 using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
 using JovemProgramadorWeb1.Data;
 using JovemProgramadorWeb1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JovemProgramadorWeb1.Data.Repositorio
 {
@@ -24,6 +25,11 @@ namespace JovemProgramadorWeb1.Data.Repositorio
             socio.codigoUsuario = usuario.codigo;
 
             return  _bancoContexto.Socio.Find(socio.codigoUsuario);
+        }
+        public Socio ObterSocioPorCodigoUsuario(int codigoUsuario)
+        {
+            // Lógica para obter informações do sócio pelo código do usuário
+            return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
         }
     }
 }

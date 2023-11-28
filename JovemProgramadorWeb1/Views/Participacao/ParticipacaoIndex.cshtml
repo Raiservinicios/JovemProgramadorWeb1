@@ -1,0 +1,45 @@
+﻿@using JovemProgramadorWeb1.Data.Repositorio;
+@using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
+@inject IParticipacaoRepositorio participacaoRepositorio
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+    <link rel="stylesheet" href="~/css/EstiloEventos.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Lista de Eventos Participantes</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data e Hora que foi confirmada a participação</th>
+                    <th>Nome do Sócio</th>
+                    <th>Nome do Evento</th>
+                    <th>Remover Participaçao</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var participacao in Model)
+                {
+                    <tr>
+                        <td>@participacao.dataHoraConfirmacao.ToString("dd/MM/yyyy, hh:mm:ss")</td>
+                        <td>@participacaoRepositorio.ObterNomeSocio(participacao.codigoSocio)</td>
+                        <td>@participacaoRepositorio.ObterNomeEvento(participacao.codigoEvento)</td>
+                        <td>
+                            <form method="post" action="@Url.Action("ExcluirParticipacao", "ParticipacaoController", new { participacaocodigo = participacao.codigo })">
+                                <button type="submit" class="btn btn-danger">Excluir Participação</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

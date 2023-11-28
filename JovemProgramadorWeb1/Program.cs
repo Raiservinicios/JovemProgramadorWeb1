@@ -17,6 +17,11 @@ builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(con
 
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
+builder.Services.AddScoped<IEventoRepositorio, EventoRepositorio>();
+
+builder.Services.AddScoped<IParticipacaoRepositorio, ParticipacaoRepositorio>();
+
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

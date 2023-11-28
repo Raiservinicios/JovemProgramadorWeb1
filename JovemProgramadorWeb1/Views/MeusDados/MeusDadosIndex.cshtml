@@ -32,6 +32,32 @@
             margin-left: 1%;
             padding: 2%;
         }
+        .dados-container {
+            text-align: left;
+        }
+        .dados-item {
+            width: 70%;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1%;
+            margin-left: 60%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: 60%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -43,13 +69,13 @@
         <div class="containerB col-25">
             <div class="">
                 <div class="col-6 button-container">
-                    <a asp-controller="Eventos" asp-action="EventosIndex" class="btn btn-large">
+                    <a asp-controller="Participacao" asp-action="ParticipacaoIndex" class="btn btn-large">
                         <i class="bi bi-calendar3"></i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
                             <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
                             <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                         </svg>
-                        <span>Eventos</span>
+                        <span>Eventos Participando</span>
                     </a>
                 </div>
             </div>
@@ -66,20 +92,41 @@
             </div>
         </div>
         <div class="Dados col-75">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        Nome
-                    </div>
-                    <div class="col">
-                        Cpf
-                    </div>
-                    <div class="col">
-                        Data Nascimento
-                    </div>
-                </div>
+            <div class="container dados-container">
+                <table class="table">                    
+                        <tr>
+                            <th>Nome</th>
+                            <td>@Model.nomeCompleto</td>
+                        </tr>
+                        <tr>
+                            <th>CPF</th>
+                            <td>@Model.cpf</td>
+                        </tr>
+                        <tr>
+                            <th>Data de Nascimento</th>
+                            <td>@Model.dataNascimento.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                        <tr>
+                            <th>Endereço</th>
+                            <td>@Model.endereco</td>
+                        </tr>
+                        <tr>
+                            <th>Telefone</th>
+                            <td>@Model.telefone</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>@Model.email</td>
+                        </tr>
+                        <tr>
+                            <th>Data adesão</th>
+                            <td>@Model.dataAdesao.ToString("dd/MM/yyyy")</td>
+                        </tr>                    
+                </table>
             </div>
         </div>
+
     </div>
 </body>
 </html>
+

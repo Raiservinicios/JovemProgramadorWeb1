@@ -12,12 +12,19 @@ namespace JovemProgramadorWeb1.Controllers
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
-        public IActionResult MeusDadosIndex(Usuario usuario, Socio socio)
+
+        public IActionResult MeusDadosIndex()
         {
-            //socio = _usuarioRepositorio.BuscarDadosSocio(usuario);
-            return View();
+            int codigoUsuarioLogado = ObterCodigoUsuarioLogado();
+
+            Socio socio = _usuarioRepositorio.ObterSocioPorCodigoUsuario(codigoUsuarioLogado);
+
+            return View(socio);
         }
 
-
+        private int ObterCodigoUsuarioLogado()
+        {
+            return 1; // Apenas para fins de exemplo
+        }
     }
 }

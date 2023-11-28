@@ -13,11 +13,17 @@ namespace JovemProgramadorWeb1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new SocioMapeamento());
+            modelBuilder.Entity<Evento>().HasKey(e => e.codigo);
+            modelBuilder.Entity<Participacao>().HasKey(e => e.codigo);
             modelBuilder.Entity<Usuario>().HasNoKey();
             modelBuilder.Entity<Socio>().HasNoKey();
         }
+
+        // Adicione a propriedade DbSet para a entidade Evento
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Socio> Socio { get; set; }
+        public DbSet<Evento> Evento { get; set; }
+        public DbSet<Participacao> Participacao { get; set; }
     }
 }
+
