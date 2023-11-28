@@ -1,4 +1,6 @@
-﻿using JovemProgramadorWeb1.Models;
+﻿using JovemProgramadorWeb1.Data.Repositorio;
+using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
+using JovemProgramadorWeb1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Diagnostics;
@@ -8,16 +10,20 @@ namespace JovemProgramadorWeb1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
+
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUsuarioRepositorio usuarioRepositorio)
         {
             _logger = logger;
+            _usuarioRepositorio = usuarioRepositorio;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Usuario usuario, Socio socio)
         {
-            return View();
+
+            return View(usuario);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -19,11 +19,11 @@ public class LoginController : Controller
     {
         try
         {
-            var acesso = _usuarioRepositorio.ValidarUsuario(usuario);
+            usuario = _usuarioRepositorio.ValidarUsuario(usuario);
 
-            if (acesso != null)
+            if (usuario != null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", usuario);
             }
             else
             {

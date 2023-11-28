@@ -14,9 +14,10 @@ namespace JovemProgramadorWeb1.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.ApplyConfiguration(new SocioMapeamento());
-            modelBuilder.Entity<Usuario>()
-                .HasNoKey();
+            modelBuilder.Entity<Usuario>().HasNoKey();
+            modelBuilder.Entity<Socio>().HasNoKey();
         }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Socio> Socio { get; set; }
     }
 }

@@ -11,6 +11,8 @@
         public string email { get; set; }
         public string dataAdesao { get; set; }
         public string flagTitular { get; set; }
+
+        public int codigoUsuario { get; set;}
     }
 }
 

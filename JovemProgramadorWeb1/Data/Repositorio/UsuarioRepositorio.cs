@@ -18,5 +18,12 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         {
             return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.senha == usuario.senha);
         }
+
+        public Socio BuscarDadosSocio(Usuario usuario) {
+            Socio socio = new Socio();
+            socio.codigoUsuario = usuario.codigo;
+
+            return  _bancoContexto.Socio.Find(socio.codigoUsuario);
+        }
     }
 }
