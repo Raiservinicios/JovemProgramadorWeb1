@@ -13,18 +13,14 @@ namespace JovemProgramadorWeb1.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-        public IActionResult MeusDadosIndex()
+        public IActionResult MeusDadosIndex(int codigo)
         {
-            int codigoUsuarioLogado = ObterCodigoUsuarioLogado();
+            int codigoUsuarioLogado = codigo;
 
             Socio socio = _usuarioRepositorio.ObterSocioPorCodigoUsuario(codigoUsuarioLogado);
 
             return View(socio);
         }
 
-        private int ObterCodigoUsuarioLogado()
-        {
-            return 1; // Apenas para fins de exemplo
-        }
     }
 }
