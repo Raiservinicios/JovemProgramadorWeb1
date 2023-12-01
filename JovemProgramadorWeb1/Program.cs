@@ -14,12 +14,13 @@ builder.Services.AddHttpClient();
 var connectionstring = builder.Configuration.GetConnectionString("StringConexao");
 builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
 
-
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 builder.Services.AddScoped<IEventoRepositorio, EventoRepositorio>();
 
 builder.Services.AddScoped<IParticipacaoRepositorio, ParticipacaoRepositorio>();
+
+builder.Services.AddScoped<IFaturaRepositorio, FaturaRepositorio>();
 
 
 var app = builder.Build();
