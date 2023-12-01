@@ -1,14 +1,15 @@
 ﻿using JovemProgramadorWeb1.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace JovemProgramadorWeb1.Data.Repositorio.Interfaces
 {
     public interface IParticipacaoRepositorio
     {
-        IEnumerable<Participacao> ObterParticipacaoEventos();
+        List<Participacao> ObterParticipacaoEventos(int codigo);
         string ObterNomeSocio(int codigoSocio);
         string ObterNomeEvento(int codigoEvento);
-        void ExcluirParticipacao(int participacaoCodigo); // Exclui o evento do banco de dados
+        bool ExcluirParticipacao(int participacaoCodigo);
+        bool AdicionarParticipacao(int eventoCodigo, int codigoSocio);
 
-        // Adicione os demais métodos conforme necessário
     }
 }

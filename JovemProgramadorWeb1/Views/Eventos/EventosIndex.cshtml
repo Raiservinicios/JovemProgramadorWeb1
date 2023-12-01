@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<Evento>
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +9,19 @@
     <link rel="stylesheet" href="~/css/EstiloEventos.css">
 </head>
 <body>
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+    @if (TempData["MensagemFalha"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["MensagemFalha"]
+        </div>
+    }
 
     <div class="container">
         <h2>Lista de Eventos</h2>
@@ -18,6 +33,7 @@
                     <th>Data do Evento</th>
                     <th>Descrição do Evento</th>
                     <th>Capacidade Máxima</th>
+                    <th>Participar</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +44,11 @@
                         <td>@evento.dataEvento.ToString("dd/MM/yyyy")</td>
                         <td>@evento.descricaoEvento</td>
                         <td>@evento.capacidadeMaxima</td>
+                        <td>
+                            <form method="post" asp-controller="Participacao" asp-action="AdicionarParticipacao" asp-route-codigoEvento="@evento.codigo" asp-route-codigoSocio="@Model[0].codigo">
+                                <button type="submit" class="btn btn-success">Participar</button>
+                            </form>
+                        </td>
                     </tr>
                 }
             </tbody>

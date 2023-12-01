@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/StiloEsqueceuSenha.css">
+    <title>Redefinir Senha Sócio</title>
+</head>
+<body>
+    <div class="containerRede">
+        <h2>Redefinir Senha Sócio</h2>
+        <form asp-action="AlterarSenha" method="post">
+            <label for="nomeUsuario">Nome de Usuário:</label>
+            <input type="text" id="nomeUsuario" name="nomeUsuario" required>
+
+            <label for="respostaSeguranca">Resposta de Segurança:</label>
+            <input type="text" id="respostaSeguranca" name="respostaSeguranca" required>
+
+            <label for="novaSenha">Nova Senha:</label>
+            <input type="password" id="novaSenha" name="novaSenha" required>
+
+            <div class="buttons">
+                <button type="submit">Alterar</button>
+                <button type="button" class="btn btn-success" onclick="cancelarRedefinicao()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        function cancelarRedefinicao() {
+            alert("Redefinição de senha cancelada!");
+        }
+    </script>
+</body>

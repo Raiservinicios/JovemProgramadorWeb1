@@ -1,6 +1,7 @@
 ﻿@using JovemProgramadorWeb1.Data.Repositorio;
 @using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
 @inject IParticipacaoRepositorio participacaoRepositorio
+@model List<Participacao>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,8 +33,8 @@
                         <td>@participacaoRepositorio.ObterNomeSocio(participacao.codigoSocio)</td>
                         <td>@participacaoRepositorio.ObterNomeEvento(participacao.codigoEvento)</td>
                         <td>
-                            <form method="post" action="@Url.Action("ExcluirParticipacao", "ParticipacaoController", new { participacaocodigo = participacao.codigo })">
-                                <button type="submit" class="btn btn-danger">Excluir Participação</button>
+                            <form method="post" asp-controller="Participacao" asp-action="ExcluirParticipacao" asp-route-codigoSocio="@participacao.codigoSocio" asp-route-codigoEvento="@participacao.codigo">
+                                <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">Excluir Participação</button>
                             </form>
                         </td>
                     </tr>
@@ -41,5 +42,13 @@
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmarExclusao() {
+            if (confirm("Tem certeza que deseja excluir sua participação?")) {
+                // Se o usuário confirmar, envie o formulário
+                document.forms[0].submit(); // Use [0] se este for o primeiro formulário na página
+            }
+        }
+    </script>
 </body>
 </html>

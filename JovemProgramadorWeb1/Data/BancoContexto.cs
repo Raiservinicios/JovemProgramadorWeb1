@@ -19,7 +19,6 @@ namespace JovemProgramadorWeb1.Data
             modelBuilder.Entity<Socio>().HasNoKey();
         }
 
-        // Adicione a propriedade DbSet para a entidade Evento
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Socio> Socio { get; set; }
         public DbSet<Evento> Evento { get; set; }
