@@ -25,7 +25,6 @@
 
     <div class="container">
         <h2>Lista de Eventos</h2>
-
         <table class="table">
             <thead>
                 <tr>
@@ -45,7 +44,7 @@
                         <td>@evento.descricaoEvento</td>
                         <td>@evento.capacidadeMaxima</td>
                         <td>
-                            <form method="post" asp-controller="Participacao" asp-action="AdicionarParticipacao" asp-route-codigoEvento="@evento.codigo" asp-route-codigoSocio="@Model[0].codigo">
+                            <form method="post" asp-controller="Participacao" asp-action="AdicionarParticipacao" asp-route-codigoEvento="@evento.codigo" asp-route-codigoSocio="@ViewBag.codigoSocio">
                                 <button type="submit" class="btn btn-success">Participar</button>
                             </form>
                         </td>
