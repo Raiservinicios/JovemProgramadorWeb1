@@ -97,7 +97,7 @@
                 transform: translateY(-50%);
             }
 
-        .remember-forgot {
+        .select-status {
             margin: -15px 0 15px;
             font-size: .9em;
             color: #fff;
@@ -105,16 +105,16 @@
             justify-content: space-between;
         }
 
-            .remember-forgot label input {
+            .select-status label input {
                 margin-right: 3px;
             }
 
-            .remember-forgot a {
+            .select-status a {
                 color: #fff;
                 text-decoration: none;
             }
 
-                .remember-forgot a:hover {
+                .select-status a:hover {
                     text-decoration: underline;
                 }
 
@@ -172,8 +172,12 @@
                     <label>Senha</label>
                 </div>
 
-                <div class="remember-forgot">
-                    <label><input type="checkbox" name="RememberMe"> Remember me</label>
+                <div class="select-status">
+                    <label>Selecione</label>
+                    <select id="flagStatus" name="flagStatus" required>
+                        <option value="true">Titular</option>
+                        <option value="false">Dependente</option>
+                    </select>
                     <a asp-controller="EsqueceuSenha" asp-action="EsqueceuSenhaIndex">Esqueceu a senha?</a>
                 </div>
 
