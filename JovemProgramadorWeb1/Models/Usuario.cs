@@ -6,5 +6,6 @@
         public string nomeUsuario { get; set; }
         public string senha { get; set; }
         public string respostaSeguranca { get; set; }
+        public bool flagStatus { get; set; }
     }
 }
