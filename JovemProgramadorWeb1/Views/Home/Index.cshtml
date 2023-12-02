@@ -88,8 +88,11 @@
                 </a>
             </div>
         </div>
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-6 button-container">
+
+        @if (Model.flagStatus == true)
+        {
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-6 button-container">
                 <a asp-controller="Faturas" asp-action="FaturasIndex" asp-route-codigo="@Model.codigo" class="btn btn-large btn-secondary m-2 d-flex flex-column justify-content-center align-items-center">
                     <i class="bi bi-currency-dollar"></i>
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
@@ -108,6 +111,7 @@
                 </a>
             </div>
         </div>
+        }else{}
     </div>
 </body>
 </html>
