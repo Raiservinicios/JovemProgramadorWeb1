@@ -12,9 +12,10 @@ namespace JovemProgramadorWeb1.Controllers
             _eventoRepositorio = eventoRepositorio;
         }
 
-        public IActionResult EventosIndex()
+        public IActionResult EventosIndex(int codigo)
         {
             var eventos = _eventoRepositorio.ObterTodosEventos();
+            ViewBag.codigoSocio = codigo;
             return View(eventos);
         }
     }
