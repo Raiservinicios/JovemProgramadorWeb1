@@ -19,6 +19,11 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         {
             return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.senha == usuario.senha);
         }
+
+        public Usuario ValidarResposta(Usuario usuario)
+        {
+            return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.respostaSeguranca == usuario.respostaSeguranca);
+        }
         public Usuario BuscarFlagStatus(Usuario usuario)
         {
             return _bancoContexto.Usuario.FirstOrDefault(x => x.codigo == usuario.codigo);
@@ -34,6 +39,20 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         {
             // Lógica para obter informações do sócio pelo código do usuário
             return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
+        }
+        public void AtualizarSenha(Usuario usuario)
+        {
+            // Lógica para atualizar a senha no banco de dados
+            // Certifique-se de implementar essa lógica de acordo com a sua estrutura de dados
+            var usuarioNoBanco = _bancoContexto.Usuario.FirstOrDefault(u => u.codigo == usuario.codigo);
+
+            if (usuarioNoBanco != null)
+            {
+                usuarioNoBanco.senha = usuario.senha;
+
+                // Salvar as alterações no banco de dados
+                _bancoContexto.SaveChanges();
+            }
         }
     }
 }
