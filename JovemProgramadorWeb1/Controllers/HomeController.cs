@@ -22,7 +22,7 @@ namespace JovemProgramadorWeb1.Controllers
 
         public IActionResult Index(Usuario usuario, Socio socio)
         {
-
+            usuario = _usuarioRepositorio.BuscarFlagStatus(usuario);
             return View(usuario);
         }
 
