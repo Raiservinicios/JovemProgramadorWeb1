@@ -37,11 +37,11 @@ namespace JovemProgramadorWeb1.Controllers
 
                 _usuarioRepositorio.AtualizarSenha(usuario);
 
-                return RedirectToAction("SenhaAlteradaComSucesso");
+                return RedirectToAction("Index", "Login");
             }
             else
             {
-                return RedirectToAction("ErroRedefinicaoSenha");
+                return RedirectToAction("EsqueceuSenhaIndex");
             }
         }
 

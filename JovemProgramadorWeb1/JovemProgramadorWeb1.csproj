@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\AdicionarController.cs" />
     <Compile Remove="DbContext.cs" />
+    <Compile Remove="Models\Dependente.cs" />
     <Compile Remove="Models\Exame.cs" />
   </ItemGroup>
 
