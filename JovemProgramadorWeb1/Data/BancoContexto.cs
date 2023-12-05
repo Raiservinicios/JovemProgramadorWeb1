@@ -18,6 +18,7 @@ namespace JovemProgramadorWeb1.Data
             modelBuilder.Entity<Usuario>().HasNoKey();
             modelBuilder.Entity<Socio>().HasNoKey();
             modelBuilder.Entity<Fatura>().HasNoKey();
+            modelBuilder.Entity<Dependente>().HasNoKey();
         }
 
         public DbSet<Usuario> Usuario { get; set; }
@@ -25,6 +26,7 @@ namespace JovemProgramadorWeb1.Data
         public DbSet<Evento> Evento { get; set; }
         public DbSet<Participacao> Participacao { get; set; }
         public DbSet<Fatura> Fatura { get; set; }
+        public DbSet<Dependente> Dependentes { get; set; }
     }
 }
 
