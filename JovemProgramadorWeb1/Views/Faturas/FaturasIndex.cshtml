@@ -3,6 +3,17 @@
 @inject IFaturaRepositorio faturaRepositorio
 @model List<Fatura>
 
+@{
+    var msgErro = TempData["MsgErro"] as string;
+}
+
+@if (!string.IsNullOrEmpty(msgErro))
+{
+    <div class="alert alert-danger" role="alert">
+        @msgErro
+    </div>
+}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

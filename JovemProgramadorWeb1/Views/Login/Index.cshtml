@@ -12,6 +12,13 @@
     </div>
 }
 
+@if (TempData["MsgSucesso"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["MsgSucesso"]
+    </div>
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

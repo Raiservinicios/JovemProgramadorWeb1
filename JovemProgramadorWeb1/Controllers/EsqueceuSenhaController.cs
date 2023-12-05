@@ -38,11 +38,13 @@ namespace JovemProgramadorWeb1.Controllers
             {
                 usuarioValidado.senha = novaSenha;
                 _usuarioRepositorio.AtualizarSenha(usuarioValidado);
-                return RedirectToAction("Index", "Login");
+                TempData["MsgSucesso"] = "Senha alterada com sucesso!";
+                return RedirectToAction("Index", "Login", TempData["MsgSucesso"]);
             }
             else
             {
-                return RedirectToAction("Index", "Login");
+                TempData["MsgErro"] = "Usuário não encontrado, verifique se os dados estão preenchidos corretamente!";
+                return RedirectToAction("EsqueceuSenhaIndex");
             }
         }
         public IActionResult Index()

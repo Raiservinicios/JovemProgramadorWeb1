@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@if (TempData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
