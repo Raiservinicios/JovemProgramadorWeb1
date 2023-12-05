@@ -1,6 +1,16 @@
 ﻿@{
     Layout = "_LayoutDeslogado";
 }
+@{
+    var msgErro = TempData["MsgErro"] as string;
+}
+
+@if (!string.IsNullOrEmpty(msgErro))
+{
+    <div class="alert alert-danger" role="alert">
+        @msgErro
+    </div>
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +18,7 @@
     <meta charset="UTF-8">
     <title>CodePen - Animated Login Form with Changing Background</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
 <body>

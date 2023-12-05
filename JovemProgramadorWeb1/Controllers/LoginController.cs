@@ -17,33 +17,23 @@ public class LoginController : Controller
 
     public IActionResult BuscaLogin(Usuario usuario)
     {
-        var status = usuario.flagStatus;
         try
         {
             usuario = _usuarioRepositorio.ValidarUsuario(usuario);
-            if (usuario.flagStatus == status) 
+            if (usuario != null)
             {
-                if (usuario != null)
-                {
-                    return RedirectToAction("Index", "Home", usuario);
-                }
-                else
-                {
-                    TempData["MsgErro"] = "Usuário ou senha incorretos! Tente novamente...";
-                    return RedirectToAction("Index"); // Redireciona de volta para a página de login
-                }
+                return RedirectToAction("Index", "Home", usuario);
             }
             else
             {
-                TempData["MsgErro"] = "Erro ao validar o login.";
+                TempData["MsgErro"] = "Usuário ou senha incorretos! Tente novamente...";
                 return RedirectToAction("Index");
             }
-            
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            TempData["MsgErro"] = "Erro ao validar o login.";
-            return RedirectToAction("Index"); // Redireciona de volta para a página de login
+            TempData["MsgErro"] = "Erro ao validar o login. Detalhes: " + ex.Message;
+            return RedirectToAction("Index");
         }
     }
 }
