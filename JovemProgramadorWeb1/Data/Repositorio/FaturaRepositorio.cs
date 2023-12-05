@@ -16,6 +16,12 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         {
             return _bancoContexto.Fatura.ToList();
         }
+
+        public Fatura ObterFatura(Fatura fatura)
+        {
+            return _bancoContexto.Fatura.FirstOrDefault(x => x.codigoSocio == fatura.codigoSocio && x.mesAnoFatura == fatura.mesAnoFatura);
+        }
+
         public string ObterNomeSocio(int codigoSocio)
         {
             var socio = _bancoContexto.Socio.FirstOrDefault(s => s.codigo == codigoSocio);

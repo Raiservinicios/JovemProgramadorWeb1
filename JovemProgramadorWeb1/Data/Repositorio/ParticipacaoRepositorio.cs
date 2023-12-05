@@ -34,7 +34,7 @@ namespace JovemProgramadorWeb1.Data.Repositorio
 
         public bool ExcluirParticipacao(int participacaoCodigo)
         {
-            var participacao = _bancoContexto.Participacao.Find(participacaoCodigo);
+            var participacao = _bancoContexto.Participacao.FirstOrDefault(x => x.codigoEvento == participacaoCodigo);
 
             if (participacao != null)
             {

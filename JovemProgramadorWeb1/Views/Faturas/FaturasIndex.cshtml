@@ -85,7 +85,7 @@
                         <td>@(fatura.flagPagamento ? "Pago" : "Pendente")</td>
                         <td>@fatura.valor</td>
                         <td class="linha-imprimir-button">
-                            <button onclick="imprimirLinha('linha@fatura.mesAnoFatura', '@faturaRepositorio.ObterNomeSocio(fatura.codigoSocio)', '@fatura.mesAnoFatura', '@fatura.valor')">Imprimir</button>
+                            <a asp-controller="Faturas" asp-action="ValidarFatura" asp-route-codigoSocio="@fatura.codigoSocio" asp-route-mesAnoFatura="@fatura.mesAnoFatura">Imprimir</a> @*onclick="imprimirLinha('linha@fatura.mesAnoFatura', '@faturaRepositorio.ObterNomeSocio(fatura.codigoSocio)', '@fatura.mesAnoFatura', '@fatura.valor')"*@
                         </td>
                     </tr>
                 }
@@ -98,8 +98,9 @@
             }
         </tbody>
     </table>
-
+    
     <script>
+        
         function imprimirLinha(idLinha, nomeSocio, mesAnoFatura, valor) {
             var linha = document.getElementById(idLinha);
             var janelaImpressao = window.open('', '', 'width=600,height=600');
