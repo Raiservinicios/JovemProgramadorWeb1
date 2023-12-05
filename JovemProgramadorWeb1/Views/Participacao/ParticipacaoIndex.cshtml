@@ -33,22 +33,22 @@
                         <td>@participacaoRepositorio.ObterNomeSocio(participacao.codigoSocio)</td>
                         <td>@participacaoRepositorio.ObterNomeEvento(participacao.codigoEvento)</td>
                         <td>
-                            <form method="post" asp-controller="Participacao" asp-action="ExcluirParticipacao" asp-route-codigoSocio="@participacao.codigoSocio" asp-route-codigoEvento="@participacao.codigo">
+                            <a method="post" asp-controller="Participacao" asp-action="ExcluirParticipacao" asp-route-codigoSocio="@participacao.codigoSocio" asp-route-codigoEvento="@participacao.codigoEvento">
                                 <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">Excluir Participação</button>
-                            </form>
+                            </a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-    <script>
+    @*<script>
         function confirmarExclusao() {
             if (confirm("Tem certeza que deseja excluir sua participação?")) {
                 // Se o usuário confirmar, envie o formulário
                 document.forms[0].submit(); // Use [0] se este for o primeiro formulário na página
             }
         }
-    </script>
+    </script>*@
 </body>
 </html>

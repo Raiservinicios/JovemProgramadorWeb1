@@ -16,9 +16,14 @@ namespace JovemProgramadorWeb1.Data
             modelBuilder.Entity<Evento>().HasKey(e => e.codigo);
             modelBuilder.Entity<Participacao>().HasKey(e => e.codigo);
             //modelBuilder.Entity<Usuario>().HasNoKey();
+<<<<<<< HEAD
             modelBuilder.Entity<Usuario>().HasKey(u => u.codigo); 
+=======
+            modelBuilder.Entity<Usuario>().HasKey(u => u.codigo);
+>>>>>>> Vinicios_Branch
             modelBuilder.Entity<Socio>().HasNoKey();
             modelBuilder.Entity<Fatura>().HasNoKey();
+            modelBuilder.Entity<Dependente>().HasNoKey();
         }
         
 
@@ -27,6 +32,7 @@ namespace JovemProgramadorWeb1.Data
         public DbSet<Evento> Evento { get; set; }
         public DbSet<Participacao> Participacao { get; set; }
         public DbSet<Fatura> Fatura { get; set; }
+        public DbSet<Dependente> Dependentes { get; set; }
     }
 }
 

@@ -16,10 +16,14 @@ namespace JovemProgramadorWeb1.Data.Mapeamento
 
             builder.Property(t => t.senha).HasColumnType("varchar(50)");
 
+<<<<<<< HEAD
             builder.Property(t => t.respostaSeguranca).HasColumnType("varchar(100)");
 
             builder.Property(t => t.perguntaSeguranca).HasColumnType("varchar(100)");
 
+=======
+            builder.Property(t => t.respostaSeguranca).HasColumnType("varchar(50)");
+>>>>>>> Vinicios_Branch
         }
     }
 }

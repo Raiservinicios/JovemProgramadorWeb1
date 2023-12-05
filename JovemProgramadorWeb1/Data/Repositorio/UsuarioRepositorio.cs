@@ -19,6 +19,11 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         {
             return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.senha == usuario.senha);
         }
+
+        public Usuario ValidarResposta(Usuario usuario)
+        {
+            return _bancoContexto.Usuario.FirstOrDefault(x => x.nomeUsuario == usuario.nomeUsuario && x.respostaSeguranca == usuario.respostaSeguranca);
+        }
         public Usuario BuscarFlagStatus(Usuario usuario)
         {
             return _bancoContexto.Usuario.FirstOrDefault(x => x.codigo == usuario.codigo);
@@ -32,17 +37,23 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         }
         public Socio ObterSocioPorCodigoUsuario(int codigoUsuario)
         {
+<<<<<<< HEAD
            
             return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
         }
 <<<<<<< Updated upstream
 =======
+=======
+            return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
+        }
+>>>>>>> Vinicios_Branch
         public void AtualizarSenha(Usuario usuario)
         {
             var usuarioNoBanco = _bancoContexto.Usuario.FirstOrDefault(u => u.codigo == usuario.codigo);
 
             if (usuarioNoBanco != null)
             {
+<<<<<<< HEAD
                 _bancoContexto.Update(usuario);
                 _bancoContexto.SaveChanges();
 
@@ -51,6 +62,26 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         }
 
 >>>>>>> Stashed changes
+=======
+                usuarioNoBanco.senha = usuario.senha;
+
+                try
+                {
+                    _bancoContexto.Update(usuarioNoBanco);
+                    _bancoContexto.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao atualizar senha: {ex.Message}");
+                    throw;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Usuário não encontrado.");
+            }
+        }
+>>>>>>> Vinicios_Branch
     }
 }
 

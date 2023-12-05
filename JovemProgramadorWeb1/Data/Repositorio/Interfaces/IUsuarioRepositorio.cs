@@ -11,5 +11,8 @@ namespace JovemProgramadorWeb1.Data.Repositorio.Interfaces
 
 
         Socio ObterSocioPorCodigoUsuario(int codigoUsuario);
+        void AtualizarSenha(Usuario usuario);
+
+        public Usuario ValidarResposta(Usuario usuario);
     }
 }

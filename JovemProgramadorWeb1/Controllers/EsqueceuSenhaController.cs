@@ -1,27 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
+using JovemProgramadorWeb1.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JovemProgramadorWeb1.Controllers
 {
     public class EsqueceuSenhaController : Controller
     {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Vinicios_Branch
         private readonly IUsuarioRepositorio _usuarioRepositorio;
 
         public EsqueceuSenhaController(IUsuarioRepositorio usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
+<<<<<<< HEAD
         
 
         [HttpGet]
 >>>>>>> Stashed changes
+=======
+
+
+        [HttpGet]
+>>>>>>> Vinicios_Branch
         public IActionResult EsqueceuSenhaIndex()
         {
             return View();
         }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Vinicios_Branch
 
         [HttpPost]
 
@@ -65,6 +79,9 @@ namespace JovemProgramadorWeb1.Controllers
 
             return false;
         }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> Vinicios_Branch
     }
 }
