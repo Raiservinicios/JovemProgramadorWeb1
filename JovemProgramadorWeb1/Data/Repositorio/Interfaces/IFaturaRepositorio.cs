@@ -5,5 +5,6 @@ namespace JovemProgramadorWeb1.Data.Repositorio.Interfaces
     public interface IFaturaRepositorio
     {
         IEnumerable <Fatura> ObterTodasFaturas();
+        string ObterNomeSocio(int codigoSocio);
     }
 }
