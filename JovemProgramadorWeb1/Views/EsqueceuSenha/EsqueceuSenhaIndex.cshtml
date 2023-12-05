@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +26,13 @@
         </form>
     </div>
 
-
     <script>
         function cancelarRedefinicao() {
-            alert("Redefinição de senha cancelada!");
+            if (confirm("Tem certeza de que deseja cancelar a redefinição de senha?")) {
+                
+                window.location.href = "/Login/Index";
+            }
         }
     </script>
 </body>
+</html>

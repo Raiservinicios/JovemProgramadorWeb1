@@ -15,10 +15,12 @@ namespace JovemProgramadorWeb1.Data
         {
             modelBuilder.Entity<Evento>().HasKey(e => e.codigo);
             modelBuilder.Entity<Participacao>().HasKey(e => e.codigo);
-            modelBuilder.Entity<Usuario>().HasNoKey();
+            //modelBuilder.Entity<Usuario>().HasNoKey();
+            modelBuilder.Entity<Usuario>().HasKey(u => u.codigo); 
             modelBuilder.Entity<Socio>().HasNoKey();
             modelBuilder.Entity<Fatura>().HasNoKey();
         }
+        
 
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Socio> Socio { get; set; }

@@ -32,8 +32,25 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         }
         public Socio ObterSocioPorCodigoUsuario(int codigoUsuario)
         {
-            // Lógica para obter informações do sócio pelo código do usuário
+           
             return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
         }
+<<<<<<< Updated upstream
+=======
+        public void AtualizarSenha(Usuario usuario)
+        {
+            var usuarioNoBanco = _bancoContexto.Usuario.FirstOrDefault(u => u.codigo == usuario.codigo);
+
+            if (usuarioNoBanco != null)
+            {
+                _bancoContexto.Update(usuario);
+                _bancoContexto.SaveChanges();
+
+              
+            }
+        }
+
+>>>>>>> Stashed changes
     }
 }
+
