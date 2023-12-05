@@ -6,5 +6,6 @@ namespace JovemProgramadorWeb1.Data.Repositorio.Interfaces
     {
         IEnumerable <Fatura> ObterTodasFaturas();
         string ObterNomeSocio(int codigoSocio);
+        Fatura ObterFatura(Fatura fatura);
     }
 }

@@ -6,43 +6,66 @@ namespace JovemProgramadorWeb1.Controllers
 {
     public class EsqueceuSenhaController : Controller
     {
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Vinicios_Branch
         private readonly IUsuarioRepositorio _usuarioRepositorio;
 
         public EsqueceuSenhaController(IUsuarioRepositorio usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
         }
+<<<<<<< HEAD
+        
 
         [HttpGet]
+>>>>>>> Stashed changes
+=======
+
+
+        [HttpGet]
+>>>>>>> Vinicios_Branch
         public IActionResult EsqueceuSenhaIndex()
         {
             return View();
         }
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Vinicios_Branch
 
         [HttpPost]
 
+        [HttpPost]
         public IActionResult AlterarSenha(string nomeUsuario, string respostaSeguranca, string novaSenha)
         {
-            Usuario usuario = new Usuario();
-            usuario.nomeUsuario = nomeUsuario;
-            usuario.respostaSeguranca = respostaSeguranca;
-            usuario.senha = novaSenha;
-            usuario = _usuarioRepositorio.ValidarResposta(usuario);
-            var respostaSegura = VerificarRespostaSeguranca(usuario, respostaSeguranca);
-
-            if (usuario != null && respostaSegura == true)
+            Usuario usuario = new Usuario
             {
-                usuario.senha = novaSenha;
+                nomeUsuario = nomeUsuario,
+                respostaSeguranca = respostaSeguranca,
+                senha = novaSenha
+            };
 
+            var usuarioValidado = _usuarioRepositorio.ValidarResposta(usuario);
 
-                _usuarioRepositorio.AtualizarSenha(usuario);
-
-                return RedirectToAction("SenhaAlteradaComSucesso");
+            if (usuarioValidado != null && VerificarRespostaSeguranca(usuarioValidado, respostaSeguranca))
+            {
+                usuarioValidado.senha = novaSenha;
+                _usuarioRepositorio.AtualizarSenha(usuarioValidado);
+                return RedirectToAction("Index", "Login");
             }
             else
             {
-                return RedirectToAction("ErroRedefinicaoSenha");
+                return RedirectToAction("Index", "Login");
             }
+        }
+        public IActionResult Index()
+        {
+
+            return View();
         }
 
         private bool VerificarRespostaSeguranca(Usuario usuario, string respostaSeguranca)
@@ -56,5 +79,9 @@ namespace JovemProgramadorWeb1.Controllers
 
             return false;
         }
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+=======
+>>>>>>> Vinicios_Branch
     }
 }
