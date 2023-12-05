@@ -21,15 +21,15 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
         }
-       
-        
-       
+
+
+
         .wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('https://www.kabum.com.br/conteudo/descricao/371535/img/tv-fhd-02-1-a5gen5-ai-processor-desktop.gif') no-repeat;
+            background: url('https://i.pinimg.com/originals/c6/b7/70/c6b770110bad6f9115b4b03bde52517e.gif') no-repeat;
             width: 100%;
             background-size: cover;
             background-position: center;
@@ -51,7 +51,7 @@
 
         h2 {
             font-size: 2em;
-            color: #fff;
+            color: darkblue;
             text-align: center;
         }
 
@@ -59,7 +59,7 @@
             position: relative;
             width: 310px;
             margin: 30px 0;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid darkblue;
         }
 
             .input-box label {
@@ -68,7 +68,7 @@
                 left: 5px;
                 transform: translateY(-50%);
                 font-size: 1em;
-                color: #fff;
+                color: darkblue;
                 pointer-events: none;
                 transition: .5s;
             }
@@ -85,7 +85,7 @@
                 border: none;
                 outline: none;
                 font-size: 1em;
-                color: #fff;
+                color: darkblue;
                 padding: 0 35px 0 5px;
             }
 
@@ -93,14 +93,14 @@
                 position: absolute;
                 right: 8px;
                 top: 50%;
-                color: #fff;
+                color: darkblue;
                 transform: translateY(-50%);
             }
 
         .select-status {
             margin: -15px 0 15px;
             font-size: .9em;
-            color: #fff;
+            color: darkblue;
             display: flex;
             justify-content: space-between;
         }
@@ -110,7 +110,7 @@
             }
 
             .select-status a {
-                color: #fff;
+                color: darkblue;
                 text-decoration: none;
             }
 
@@ -121,32 +121,39 @@
         button {
             width: 100%;
             height: 40px;
-            background-color: #fff;
+            background-color: rgba();
             border: none;
             border-radius: 40px;
             cursor: pointer;
             font-size: 1em;
             color: #000;
             font-weight: 500;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
+
+            button:hover {
+                background-color: green;
+                color: darkblue;
+            }
+
 
         .register-link {
             font-size: .9em;
-            color: #fff;
+            color: blue;
             text-align: center;
             margin: 25px 0 10px;
         }
 
             .register-link p a {
-                color: #fff;
+                color: blue;
                 text-decoration: none;
                 font-weight: 600;
             }
 
-        .register-link p a:hover {
-            text-decoration: underline;
-            width: 290px;
-        }
+                .register-link p a:hover {
+                    text-decoration: underline;
+                    width: 290px;
+                }
 
     </style>
     <!-- partial:index.partial.html -->
