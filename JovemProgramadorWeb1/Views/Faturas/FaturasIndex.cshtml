@@ -1,4 +1,7 @@
-﻿@model List<Fatura>
+﻿@using JovemProgramadorWeb1.Data.Repositorio;
+@using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
+@inject IFaturaRepositorio faturaRepositorio
+@model List<Fatura>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -54,6 +57,7 @@
             button:hover {
                 background-color: #45a049;
             }
+        
     </style>
 </head>
 <body>
@@ -63,11 +67,10 @@
     <table>
         <thead>
             <tr>
-                <th>Código</th>
+                <th>Sócio</th>
                 <th>Mês/Ano</th>
-                <th>Valor</th>
                 <th>Pagamento</th>
-                <th>Código do Sócio</th>
+                <th>Valor</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -77,13 +80,12 @@
                 @foreach (var fatura in Model)
                 {
                     <tr>
-                        <td>@fatura.codigo</td>
+                        <td>@faturaRepositorio.ObterNomeSocio(fatura.codigoSocio)</td>
                         <td>@fatura.mesAnoFatura</td>
-                        <td>@fatura.valor</td>
                         <td>@(fatura.flagPagamento ? "Pago" : "Pendente")</td>
-                        <td>@fatura.codigoSocio</td>
+                        <td>@fatura.valor</td>
                         <td class="linha-imprimir-button">
-                            <button onclick="imprimirLinha('@fatura.mesAnoFatura', '@fatura.valor')">Imprimir</button>
+                            <button onclick="imprimirLinha('linha@fatura.mesAnoFatura', '@faturaRepositorio.ObterNomeSocio(fatura.codigoSocio)', '@fatura.mesAnoFatura', '@fatura.valor')">Imprimir</button>
                         </td>
                     </tr>
                 }
@@ -98,11 +100,12 @@
     </table>
 
     <script>
-        function imprimirLinha(idLinha, mesAnoFatura, valor) {
+        function imprimirLinha(idLinha, nomeSocio, mesAnoFatura, valor) {
             var linha = document.getElementById(idLinha);
             var janelaImpressao = window.open('', '', 'width=600,height=600');
             janelaImpressao.document.write('<html><head><title>Imprimir Fatura</title></head><body>');
             janelaImpressao.document.write('<h2>Fatura</h2>');
+            janelaImpressao.document.write('<p>Sócio: ' + nomeSocio + '</p>');
             janelaImpressao.document.write('<p>Mês/Ano: ' + mesAnoFatura + '</p>');
             janelaImpressao.document.write('<p>Valor: ' + valor + '</p>');
             janelaImpressao.document.write('<table border="1">' + linha.innerHTML + '</table>');
@@ -111,6 +114,5 @@
             janelaImpressao.print();
         }
     </script>
-
 </body>
 </html>
