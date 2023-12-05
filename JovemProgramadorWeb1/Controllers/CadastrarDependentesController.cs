@@ -1,4 +1,5 @@
 ﻿using JovemProgramadorWeb1.Data;
+using JovemProgramadorWeb1.Data.Repositorio.Interfaces;
 using JovemProgramadorWeb1.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,9 @@ namespace JovemProgramadorWeb1.Controllers
 {
     public class CadastrarDependentesController : Controller
     {
+        private readonly IConfiguration _configuration;
+        private readonly ICadastrarRepositorio _cadastrarRepositorio;
+
         [HttpGet]
         public IActionResult CadastrarDependentesIndex()
         {
@@ -13,33 +17,27 @@ namespace JovemProgramadorWeb1.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarDependentesIndex(Dependente dependente)
+        public IActionResult CadastrarDependente(Dependente dependente, int codigoUsuario)
         {
             if (ModelState.IsValid)
             {
-                // Aqui você pode adicionar lógica para salvar o dependente no banco de dados
-                // dependenteViewModel conterá os dados do formulário submetido
-
-                // Exemplo com o Entity Framework:
-                var dependente = new Dependente
+                try
                 {
-                    nomeCompleto = dependente.NomeCompleto,
-                    cpf = dependente.CPF,
-                    dataNascimento = dependente.DataNascimento,
-                    parentesco = dependente.Parentesco,
-                    usuario = dependente.Usuario,
-                    senha = dependente.Senha
-                };
-
-                _bancoContexto.Dependente.Add(dependente);
-                _bancoContexto.SaveChanges();
-
-                // Talvez você queira redirecionar para outra página ou recarregar a página atual
-                return RedirectToAction("CadastrarDependentesIndex");
+                    _cadastrarRepositorio.InserirDependente(dependente, codigoUsuario);
+                    TempData["MsgSucesso"] = "Dependente cadastrado com sucesso";
+                }
+                catch (Exception e)
+                {
+                    TempData["MsgErro"] = "Erro ao cadastrar dependente: " + e.Message;
+                }
+            }
+            else
+            {
+                TempData["MsgErro"] = "Erro ao cadastrar dependente: Dados inválidos.";
             }
 
-            // Se a validação falhar, você pode querer lidar com isso de acordo com seus requisitos
-            return View(dependente);
+            return RedirectToAction("Index");
         }
+
     }
 }

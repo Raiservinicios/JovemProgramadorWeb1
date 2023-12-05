@@ -37,21 +37,30 @@ namespace JovemProgramadorWeb1.Data.Repositorio
         }
         public Socio ObterSocioPorCodigoUsuario(int codigoUsuario)
         {
-            // Lógica para obter informações do sócio pelo código do usuário
             return _bancoContexto.Socio.FirstOrDefault(s => s.codigoUsuario == codigoUsuario);
         }
         public void AtualizarSenha(Usuario usuario)
         {
-            // Lógica para atualizar a senha no banco de dados
-            // Certifique-se de implementar essa lógica de acordo com a sua estrutura de dados
             var usuarioNoBanco = _bancoContexto.Usuario.FirstOrDefault(u => u.codigo == usuario.codigo);
 
             if (usuarioNoBanco != null)
             {
                 usuarioNoBanco.senha = usuario.senha;
 
-                // Salvar as alterações no banco de dados
-                _bancoContexto.SaveChanges();
+                try
+                {
+                    _bancoContexto.Update(usuarioNoBanco);
+                    _bancoContexto.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao atualizar senha: {ex.Message}");
+                    throw;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Usuário não encontrado.");
             }
         }
     }

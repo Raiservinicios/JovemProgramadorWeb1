@@ -13,6 +13,7 @@ namespace JovemProgramadorWeb1.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
+
         [HttpGet]
         public IActionResult EsqueceuSenhaIndex()
         {
@@ -21,28 +22,33 @@ namespace JovemProgramadorWeb1.Controllers
 
         [HttpPost]
 
+        [HttpPost]
         public IActionResult AlterarSenha(string nomeUsuario, string respostaSeguranca, string novaSenha)
         {
-            Usuario usuario = new Usuario();
-            usuario.nomeUsuario = nomeUsuario;
-            usuario.respostaSeguranca = respostaSeguranca;
-            usuario.senha = novaSenha;
-            usuario = _usuarioRepositorio.ValidarResposta(usuario);
-            var respostaSegura = VerificarRespostaSeguranca(usuario, respostaSeguranca);
-
-            if (usuario != null && respostaSegura == true)
+            Usuario usuario = new Usuario
             {
-                usuario.senha = novaSenha;
+                nomeUsuario = nomeUsuario,
+                respostaSeguranca = respostaSeguranca,
+                senha = novaSenha
+            };
 
+            var usuarioValidado = _usuarioRepositorio.ValidarResposta(usuario);
 
-                _usuarioRepositorio.AtualizarSenha(usuario);
-
+            if (usuarioValidado != null && VerificarRespostaSeguranca(usuarioValidado, respostaSeguranca))
+            {
+                usuarioValidado.senha = novaSenha;
+                _usuarioRepositorio.AtualizarSenha(usuarioValidado);
                 return RedirectToAction("Index", "Login");
             }
             else
             {
-                return RedirectToAction("EsqueceuSenhaIndex");
+                return RedirectToAction("Index", "Login");
             }
+        }
+        public IActionResult Index()
+        {
+
+            return View();
         }
 
         private bool VerificarRespostaSeguranca(Usuario usuario, string respostaSeguranca)
